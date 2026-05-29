@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="186" height="186" viewBox="0 0 186 186">
+  <rect width="186" height="186" fill="#e8e8e8"/>
+  <circle cx="93" cy="74" r="28" fill="#cfcfcf"/>
+  <path d="M40 170 C40 130 65 110 93 110 C121 110 146 130 146 170 Z" fill="#cfcfcf"/>
+  <text x="93" y="178" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#888">drop profile.jpg in /public</text>
+</svg>

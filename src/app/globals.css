@@ -1,26 +1,478 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #ffffff;
+  --fg: #000000;
+  --muted: #444;
+  --rule: #999;
+  --link: #1a0dab;
+  --link-hover: #000;
+  --card: #fafafa;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Hero landing-page animations */
+@keyframes fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-down {
+  animation: fade-in-down 0.8s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animation-delay-200 {
+  animation-delay: 0.2s;
+}
+.animation-delay-400 {
+  animation-delay: 0.4s;
+}
+.animation-delay-600 {
+  animation-delay: 0.6s;
+}
+.animation-delay-800 {
+  animation-delay: 0.8s;
+}
+
+.dark {
+  --bg: #0d0d0d;
+  --fg: #e8e8e8;
+  --muted: #b8b8b8;
+  --rule: #555;
+  --link: #7aa7ff;
+  --link-hover: #ffffff;
+  --card: #1a1a1a;
+}
+
+html {
+  overflow-y: scroll;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background 0.2s, color 0.2s;
+}
+
+/* ─────────────────────────────────────────────────────────
+   Ryan-style home page
+   ───────────────────────────────────────────────────────── */
+
+#page-wrap {
+  width: 1000px;
+  max-width: calc(100% - 32px);
+  margin: 40px auto 60px;
+}
+
+#page-wrap h1.name {
+  margin: 0 0 16px 0;
+  padding: 0 0 16px 0;
+  font-size: 52px;
+  letter-spacing: -1.5px;
+  border-bottom: 1px solid var(--rule);
+  font-weight: normal;
+  font-family: "Lucida Grande", "Helvetica Neue", Helvetica, sans-serif;
+  line-height: 1.1;
+}
+
+#page-wrap .info {
+  font-size: 19px;
+  line-height: 32px;
+}
+
+.icon-inline {
+  display: inline-block;
+  vertical-align: -3px;
+  margin-right: 4px;
+}
+
+.tt {
+  font-family: ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
+  font-size: 18px;
+}
+
+#page-wrap #pic-wrap {
+  float: right;
+  margin-top: 55px;
+}
+
+#page-wrap .borderedpicture {
+  background-color: var(--card);
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 2px;
+  margin: -30px 0 0 0; /* pull img up so top aligns with first line of bio (Ryan's pattern) */
+  box-shadow:
+    0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#page-wrap #objective {
+  width: 640px;
+  float: left;
+}
+
+#page-wrap #objective p {
+  margin: 0 0 16px 0;
+}
+
+#page-wrap h2 {
+  font-size: 28px;
+  margin: 0 0 10px 0;
+  font-weight: bold;
+}
+
+#page-wrap p {
+  margin: 0 0 16px 0;
+}
+
+#page-wrap a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+#page-wrap a:hover {
+  color: var(--link-hover);
+}
+
+#page-wrap ul {
+  margin: 0 0 32px 17px;
+  padding: 0;
+}
+
+#page-wrap ul li {
+  list-style: disc;
+  margin-bottom: 14px;
+}
+
+#page-wrap ol:not(.papers) {
+  margin: 0 0 32px 22px;
+  padding: 0;
+  list-style: decimal;
+}
+
+#page-wrap ol:not(.papers) li {
+  margin-bottom: 14px;
+  padding-left: 6px;
+}
+
+/* Academic Service — inherits column alignment from the shared .papers rule above. */
+#page-wrap ol.service {
+  font-family: Charter, "Iowan Old Style", "Hoefler Text", Georgia, serif;
+}
+
+#page-wrap ol.service li {
+  margin-bottom: 14px;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* Paper list — serif, numbered, title as understated link.
+   Uses a custom counter so markers in .papers and .service line up in the same column
+   regardless of font-size or marker width (1. vs 10.). */
+#page-wrap ol.papers,
+#page-wrap ol.service {
+  list-style: none;
+  counter-reset: item;
+  margin: 0 0 32px 0;
+  padding-left: 38px; /* room for the absolute-positioned marker */
+}
+
+#page-wrap ol.papers li,
+#page-wrap ol.service li {
+  counter-increment: item;
+  position: relative;
+}
+
+#page-wrap ol.papers li::before,
+#page-wrap ol.service li::before {
+  content: counter(item) ".";
+  position: absolute;
+  left: -32px;
+  width: 26px;
+  text-align: right;
+  font-weight: 500;
+}
+
+#page-wrap ol.papers {
+  font-family: Charter, "Iowan Old Style", "Hoefler Text", Georgia, serif;
+}
+
+#page-wrap ol.papers li {
+  margin-bottom: 32px;
+  font-size: 20px;
+  line-height: 1.45;
+}
+
+#page-wrap ol.papers .paper-title {
+  display: block;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.35;
+  margin-bottom: 8px;
+  color: var(--fg);
+}
+
+#page-wrap ol.papers .paper-authors {
+  display: block;
+  margin-bottom: 4px;
+}
+
+#page-wrap ol.papers .paper-venue {
+  display: block;
+  font-style: italic;
+  color: var(--muted);
+}
+
+/* Theme toggle */
+/* Keyboard-style "A" key, fixed top-left, click-down press animation.
+   The .kbd-key-wrap forms the darker mat the key sits in. */
+.kbd-key-wrap {
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  z-index: 100;
+  padding: 5px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.55);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+.kbd-key {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  border-radius: 7px;
+  border: 1px solid rgba(0, 0, 0, 0.45);
+  padding: 0;
+  /* Top-to-bottom gradient simulates light striking the cap face from above */
+  background: linear-gradient(
+    180deg,
+    #3a3a3a 0%,
+    #232323 55%,
+    #181818 100%
+  );
+  box-shadow:
+    /* Top bevel highlight (reflected light on the upper edge) */
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    /* Bottom inner shade (inside lip of the cap) */
+    inset 0 -2px 2px rgba(0, 0, 0, 0.5),
+    /* Side highlight pixels (subtle vertical bevels) */
+    inset 1px 0 0 rgba(255, 255, 255, 0.06),
+    inset -1px 0 0 rgba(255, 255, 255, 0.06),
+    /* The visible side wall of the keycap — solid 4px stack */
+    0 1px 0 #0a0a0a,
+    0 2px 0 #080808,
+    0 3px 0 #050505,
+    0 4px 0 #030303,
+    /* Soft cast shadow on the keyboard surface beneath */
+    0 6px 10px rgba(0, 0, 0, 0.55);
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 0.08s ease,
+    box-shadow 0.08s ease,
+    background 0.15s ease;
+}
+
+.kbd-key-letter {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.kbd-key:hover {
+  background: linear-gradient(
+    180deg,
+    #424242 0%,
+    #282828 55%,
+    #1c1c1c 100%
+  );
+}
+
+.kbd-key:active {
+  /* Press the cap all the way down to the surface (matches the 4px wall) */
+  transform: translateY(4px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -2px 2px rgba(0, 0, 0, 0.5),
+    inset 1px 0 0 rgba(255, 255, 255, 0.06),
+    inset -1px 0 0 rgba(255, 255, 255, 0.06),
+    /* Walls collapsed — cap now flush with surface */
+    0 0 0 #030303,
+    0 1px 3px rgba(0, 0, 0, 0.55);
+}
+
+.cardioid-link {
+  display: block;
+  width: 280px;
+  height: 280px;
+  margin: 80px auto 60px;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+  text-decoration: none;
+  border: none;
+}
+
+.cardioid-link:hover {
+  opacity: 1;
+}
+
+/* Dark mode — bump opacity so the white sparkle lines read clearly against #0d0d0d */
+.dark .cardioid-link {
+  opacity: 0.95;
+}
+
+.dark .cardioid-link:hover {
+  opacity: 1;
+}
+
+.cardioid-caption {
+  text-align: center;
+  font-family: Charter, "Iowan Old Style", Georgia, serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: -40px;
+  margin-bottom: 80px;
+  letter-spacing: 0.02em;
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: inherit;
+  font-size: 15px;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    border-color 0.15s,
+    transform 0.1s;
+}
+
+.theme-toggle:hover {
+  border-color: var(--fg);
+}
+
+.theme-toggle:active {
+  transform: scale(0.97);
+}
+
+@media (max-width: 840px) {
+  #page-wrap #objective {
+    width: 100%;
+    float: none;
+  }
+  #page-wrap #pic-wrap {
+    float: none;
+    margin: 16px 0;
+  }
+  .theme-toggle {
+    top: 12px;
+    right: 12px;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────
+   Addison-style sub-pages
+   ───────────────────────────────────────────────────────── */
+
+section h3 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+section h3 + ul li {
+  margin-bottom: 0.6rem;
+}
+
+.course-code {
+  display: inline-block;
+  min-width: 130px;
+  font-weight: bold;
+  padding-right: 0.5rem;
+}
+
+.container {
+  max-width: calc(800px + 12ch);
+  margin: 2rem auto;
+  padding: 0 1rem;
+  line-height: 1.6;
+}
+
+.container a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+.container a:hover {
+  opacity: 0.8;
+}
+
+.container h1,
+.container h2 {
+  margin-bottom: 0.5rem;
+}
+
+.container section {
+  margin-bottom: 2rem;
+}
+
+.container section ul li {
+  padding-left: 0.75rem;
+}
+
+.container footer {
+  margin-top: 3rem;
+  font-size: 0.9em;
+  color: var(--muted);
 }

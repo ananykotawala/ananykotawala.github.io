@@ -71,8 +71,8 @@ html {
 
 body {
   font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
-  font-size: 20px;
-  line-height: 30px;
+  font-size: 16px;
+  line-height: 24px;
   margin: 0;
   padding: 0;
   background: var(--bg);
@@ -95,8 +95,8 @@ body {
 #page-wrap h1.name {
   margin: 0 0 16px 0;
   padding: 0 0 16px 0;
-  font-size: 52px;
-  letter-spacing: -1.5px;
+  font-size: 42px;
+  letter-spacing: -2px;
   border-bottom: 1px solid var(--rule);
   font-weight: normal;
   font-family: "Lucida Grande", "Helvetica Neue", Helvetica, sans-serif;
@@ -104,8 +104,8 @@ body {
 }
 
 #page-wrap .info {
-  font-size: 19px;
-  line-height: 32px;
+  font-size: 14px;
+  line-height: 22px;
 }
 
 .icon-inline {
@@ -116,7 +116,7 @@ body {
 
 .tt {
   font-family: ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 #page-wrap #pic-wrap {
@@ -146,8 +146,8 @@ body {
 }
 
 #page-wrap h2 {
-  font-size: 28px;
-  margin: 0 0 10px 0;
+  font-size: 20px;
+  margin: 0 0 6px 0;
   font-weight: bold;
 }
 
@@ -193,7 +193,7 @@ body {
 
 #page-wrap ol.service li {
   margin-bottom: 14px;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.5;
 }
 
@@ -229,17 +229,17 @@ body {
 }
 
 #page-wrap ol.papers li {
-  margin-bottom: 32px;
-  font-size: 20px;
-  line-height: 1.45;
+  margin-bottom: 24px;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 #page-wrap ol.papers .paper-title {
   display: block;
-  font-size: 22px;
+  font-size: 17px;
   font-weight: 600;
-  line-height: 1.35;
-  margin-bottom: 8px;
+  line-height: 1.4;
+  margin-bottom: 4px;
   color: var(--fg);
 }
 

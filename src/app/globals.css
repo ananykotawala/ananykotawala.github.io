@@ -259,11 +259,11 @@ body {
    The .kbd-key-wrap forms the darker mat the key sits in. */
 .kbd-key-wrap {
   position: fixed;
-  top: 18px;
-  left: 18px;
+  top: 20px;
+  left: 20px;
   z-index: 100;
-  padding: 5px;
-  border-radius: 8px;
+  padding: 3px;
+  border-radius: 7px;
   background: rgba(0, 0, 0, 0.55);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.04),
@@ -292,13 +292,16 @@ body {
     /* Side highlight pixels (subtle vertical bevels) */
     inset 1px 0 0 rgba(255, 255, 255, 0.06),
     inset -1px 0 0 rgba(255, 255, 255, 0.06),
-    /* The visible side wall of the keycap — solid 4px stack */
-    0 1px 0 #0a0a0a,
-    0 2px 0 #080808,
-    0 3px 0 #050505,
-    0 4px 0 #030303,
+    /* Deeper side wall of the keycap — 7px stack for more pronounced 3D */
+    0 1px 0 #0c0c0c,
+    0 2px 0 #0a0a0a,
+    0 3px 0 #080808,
+    0 4px 0 #060606,
+    0 5px 0 #040404,
+    0 6px 0 #030303,
+    0 7px 0 #020202,
     /* Soft cast shadow on the keyboard surface beneath */
-    0 6px 10px rgba(0, 0, 0, 0.55);
+    0 9px 12px rgba(0, 0, 0, 0.6);
   cursor: pointer;
   user-select: none;
   display: flex;
@@ -330,8 +333,8 @@ body {
 }
 
 .kbd-key:active {
-  /* Press the cap all the way down to the surface (matches the 4px wall) */
-  transform: translateY(4px);
+  /* Press the cap all the way down to the surface (matches the 7px wall) */
+  transform: translateY(7px);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.12),
     inset 0 -2px 2px rgba(0, 0, 0, 0.5),

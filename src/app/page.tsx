@@ -182,7 +182,15 @@ export default function Home() {
               </span>
               <span className="paper-venue">
                 2nd Workshop on the Impact of Memorization on Trustworthy
-                Foundation Models (MemFM) at ICML · 2026
+                Foundation Models (MemFM) at ICML · 2026 [
+                <a
+                  href="https://arxiv.org/abs/2605.30393"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  arXiv
+                </a>
+                ]
               </span>
             </li>
 

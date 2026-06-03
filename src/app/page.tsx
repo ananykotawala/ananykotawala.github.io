@@ -104,14 +104,24 @@ export default function Home() {
             ananykotawala
           </a>
           &nbsp;&nbsp;&nbsp;&nbsp;
-          <GithubIcon /> GitHub:{" "}
+          <ScholarIcon /> Google Scholar:{" "}
           <a
             className="tt"
-            href="https://github.com/akotawala10"
+            href="https://scholar.google.com/citations?user=84UFQ6MAAAAJ&hl=en&oi=ao"
             target="_blank"
             rel="noreferrer"
           >
-            akotawala10
+            link
+          </a>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <GithubIcon /> GitHub:{" "}
+          <a
+            className="tt"
+            href="https://github.com/ananykotawala"
+            target="_blank"
+            rel="noreferrer"
+          >
+            ananykotawala
           </a>
         </div>
 

@@ -147,6 +147,18 @@ export default function Home() {
             learning, fast-paced environments, and problems where reasoning
             and coordination either snap into place or fall apart.
           </p>
+          <p style={{ marginBottom: 25 }}>
+            Lately, I&rsquo;ve been thinking about reinforcement learning
+            through the lens of AI safety: how to specify reward signals you
+            can actually trust, how to train agents whose behavior generalizes
+            outside the distribution they were tuned on, and how to tell
+            whether an evaluation reflects what you meant. My recent papers on
+            contamination, paired evaluation, and compositional coherence in
+            multi-component systems approach this from different sides. The
+            pattern I keep noticing is that the metrics we trust most are
+            often the ones that have failed in ways we haven&rsquo;t seen
+            yet, and that&rsquo;s where I want to spend more time.
+          </p>
           <p style={{ marginBottom: 20 }}>
             Always up for a conversation, especially with people thinking from
             angles I haven&rsquo;t. Reach me at{" "}

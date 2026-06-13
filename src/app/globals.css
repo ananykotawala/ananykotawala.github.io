@@ -272,9 +272,9 @@ body {
 
 .kbd-key {
   position: relative;
-  width: 38px;
-  height: 38px;
-  border-radius: 7px;
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
   border: 1px solid rgba(0, 0, 0, 0.45);
   padding: 0;
   /* Top-to-bottom gradient simulates light striking the cap face from above */
@@ -317,7 +317,7 @@ body {
   font-family:
     -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial,
     sans-serif;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 500;
   color: #ffffff;
   line-height: 1;

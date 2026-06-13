@@ -135,30 +135,50 @@ export default function Home() {
         </div>
 
         <div id="objective">
-          <p style={{ marginTop: 23, marginBottom: 25 }}>
-            Hi! I&rsquo;m Anany, a rising senior at Princeton studying
+          <p style={{ marginTop: 23, marginBottom: 22 }}>
+            Hi! I&rsquo;m Anany, a senior at Princeton University studying
             Financial Engineering, with minors in computer science,
             optimization, and cognitive science.
           </p>
-          <p style={{ marginBottom: 25 }}>
-            These days, I spend my time thinking about reinforcement learning,
+          <p style={{ marginBottom: 22 }}>
+            These days I spend most of my time on reinforcement learning,
             strategic games, and markets, and what they share: decisions made
             fast, under uncertainty, against other decision-makers. I love
-            learning, fast-paced environments, and problems where reasoning
-            and coordination either snap into place or fall apart.
+            problems where reasoning and coordination either snap into place
+            or fall apart.
           </p>
-          <p style={{ marginBottom: 25 }}>
-            Lately, I&rsquo;ve been thinking about reinforcement learning
-            through the lens of AI safety: how to specify reward signals you
-            can actually trust, how to train agents whose behavior generalizes
-            outside the distribution they were tuned on, and how to tell
-            whether an evaluation reflects what you meant. My recent papers on
-            contamination, paired evaluation, and compositional coherence in
-            multi-component systems approach this from different sides. The
-            pattern I keep noticing is that the metrics we trust most are
+          <p style={{ marginBottom: 22 }}>
+            A lot of what I&rsquo;m working on now sits on the AI safety side
+            of RL: whether reward signals measure what you wanted, whether
+            behavior holds up outside training. The metrics we trust most are
             often the ones that have failed in ways we haven&rsquo;t seen
             yet, and that&rsquo;s where I want to spend more time.
           </p>
+          <p style={{ marginBottom: 8 }}>
+            <strong>Currently:</strong>
+          </p>
+          <ul>
+            <li>
+              Cooperative multi-agent RL in SocialJax: adapting
+              distributed-systems scalability models (Universal Scalability
+              Law) to learned-team performance across sizes 2&ndash;10,
+              comparing how RL agents scale against human teams on the same
+              environments.
+            </li>
+            <li>
+              Connect 4 as a clean RL testbed for genuine strategic structure
+              versus local pattern-matching: training self-play DQN and
+              tabular Q-learning agents, then probing their value functions
+              across 63 diagnostic positions to localize where policies and
+              humans transition between local heuristics and global structure.
+            </li>
+            <li>
+              Lucky CoT: developing a step-level faithfulness metric and
+              diagnostic benchmark for chain-of-thought reasoning, quantifying
+              when frontier models do the multi-step work versus when they
+              land on the right answer by accident.
+            </li>
+          </ul>
           <p style={{ marginBottom: 20 }}>
             Always up for a conversation, especially with people thinking from
             angles I haven&rsquo;t. Reach me at{" "}

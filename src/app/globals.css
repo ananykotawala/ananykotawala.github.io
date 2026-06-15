@@ -127,6 +127,7 @@ body {
 #page-wrap .borderedpicture {
   background-color: var(--card);
   display: block;
+  width: 320px;
   max-width: 100%;
   height: auto;
   border-radius: 2px;
@@ -410,18 +411,96 @@ body {
   transform: scale(0.97);
 }
 
+/* ─── Tablet: stack the photo and bio vertically ─── */
 @media (max-width: 840px) {
+  #page-wrap {
+    margin: 30px auto 50px;
+  }
   #page-wrap #objective {
     width: 100%;
     float: none;
   }
   #page-wrap #pic-wrap {
     float: none;
-    margin: 16px 0;
+    margin: 16px auto 24px;
+    text-align: center;
+  }
+  #page-wrap .borderedpicture {
+    width: 240px;
+    margin: 0 auto;
+  }
+  #page-wrap h1.name {
+    font-size: 36px;
+    letter-spacing: -1.5px;
   }
   .theme-toggle {
     top: 12px;
     right: 12px;
+    padding: 7px 12px;
+    font-size: 13px;
+  }
+  .kbd-key-wrap {
+    top: 12px;
+    left: 12px;
+  }
+  .cardioid-link {
+    width: 220px;
+    height: 220px;
+    margin: 60px auto 40px;
+  }
+}
+
+/* ─── Mobile: tighten everything further ─── */
+@media (max-width: 480px) {
+  #page-wrap {
+    margin: 20px auto 40px;
+  }
+  #page-wrap h1.name {
+    font-size: 30px;
+    letter-spacing: -1px;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+  }
+  #page-wrap .info {
+    font-size: 13px;
+    line-height: 21px;
+  }
+  .tt {
+    font-size: 13px;
+  }
+  #page-wrap .borderedpicture {
+    width: 200px;
+  }
+  #page-wrap h2 {
+    font-size: 18px;
+  }
+  #page-wrap ol.papers,
+  #page-wrap ol.service {
+    padding-left: 30px;
+  }
+  #page-wrap ol.papers li::before,
+  #page-wrap ol.service li::before {
+    left: -26px;
+    width: 22px;
+  }
+  #page-wrap ol.papers .paper-title {
+    font-size: 16px;
+  }
+  #page-wrap ol.papers li {
+    font-size: 14.5px;
+    margin-bottom: 20px;
+  }
+  #page-wrap ol.service li {
+    font-size: 14.5px;
+  }
+  .cardioid-link {
+    width: 180px;
+    height: 180px;
+    margin: 50px auto 30px;
+  }
+  .cardioid-caption {
+    font-size: 13px;
+    margin-bottom: 50px;
   }
 }
 

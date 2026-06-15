@@ -130,7 +130,6 @@ export default function Home() {
             className="borderedpicture"
             src="/profile.jpg"
             alt="Anany Kotawala"
-            style={{ width: 320 }}
           />
         </div>
 

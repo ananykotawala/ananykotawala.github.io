@@ -31,6 +31,11 @@ export default function RootLayout({
       <body>
         {children}
         <Script src="/cardioid.js" strategy="afterInteractive" />
+        <Script
+          data-goatcounter="https://ananykotawala.goatcounter.com/count"
+          src="https://gc.zgo.at/count.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
